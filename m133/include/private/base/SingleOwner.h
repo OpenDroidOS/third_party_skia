@@ -32,13 +32,15 @@ namespace skgpu {
 #if defined(SK_DEBUG)
 #define SKGPU_ASSERT_SINGLE_OWNER(obj) \
     skgpu::SingleOwner::AutoEnforce debug_SingleOwner(obj, __FILE__, __LINE__);
-#define SKGPU_ASSERT_SINGLE_OWNER_OHOS(obj)
+#else
+#define SKGPU_ASSERT_SINGLE_OWNER(obj)
 #endif
 
 #if defined(SKIA_OHOS_SINGLE_OWNER)
-#define SKGPU_ASSERT_SINGLE_OWNER(obj)
 #define SKGPU_ASSERT_SINGLE_OWNER_OHOS(obj) \
-    skgpu::SingleOwner::AutoEnforce debug_SingleOwner(obj, __FILE__, __LINE__);
+    skgpu::SingleOwner::AutoEnforce debug_SingleOwner_OHOS(obj, __FILE__, __LINE__);
+#else
+#define SKGPU_ASSERT_SINGLE_OWNER_OHOS(obj)
 #endif
 
 #if defined(SK_DEBUG) || defined(SKIA_OHOS_SINGLE_OWNER)
