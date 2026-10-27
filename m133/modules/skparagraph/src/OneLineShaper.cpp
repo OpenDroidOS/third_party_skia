@@ -103,9 +103,15 @@ void OneLineShaper::printState() {
             continue;
         }
         SkString name("???");
+#ifdef ENABLE_TEXT_ENHANCE
+        if (auto typeface = resolved.fRun->fFont.GetTypeface()) {
+            name.set(typeface->GetFamilyName().c_str());
+        }
+#else
         if (resolved.fRun->fFont.getTypeface() != nullptr) {
             resolved.fRun->fFont.getTypeface()->getFamilyName(&name);
         }
+#endif
         SkDebugf("[%zu:%zu) ", resolved.fGlyphs.start, resolved.fGlyphs.end);
         SkDebugf("[%zu:%zu) with %s\n",
                 resolved.fText.start, resolved.fText.end,

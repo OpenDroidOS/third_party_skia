@@ -258,7 +258,7 @@ void SkShaperPrimitive::shape(const char* utf8,
         fontRuns.consume();
         font = fontRuns.currentFont();
     }
-    SkASSERT(font.getTypeface());
+    SkASSERT(font.GetTypeface());
 
     int glyphCount = font.CountText(utf8, utf8Bytes, RSDrawing::TextEncoding::UTF8);
     if (glyphCount < 0) {

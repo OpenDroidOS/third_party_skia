@@ -174,7 +174,7 @@ sk_sp<GrTexture> GrMockGpu::onCreateCompressedTexture(SkISize dimensions,
                                                 GrProtected isProtected,
                                                 OH_NativeBuffer* nativeBuffer,
                                                 size_t bufferSize) {
-    SkASSERT(!"unimplemented");
+    SkDEBUGFAIL("unimplemented");
     return nullptr;
 }
 

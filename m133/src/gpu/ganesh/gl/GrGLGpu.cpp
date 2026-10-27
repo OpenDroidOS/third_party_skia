@@ -1678,7 +1678,7 @@ sk_sp<GrTexture> GrGLGpu::onCreateCompressedTexture(SkISize dimensions,
                                                 GrProtected isProtected,
                                                 OH_NativeBuffer* nativeBuffer,
                                                 size_t bufferSize) {
-    SkASSERT(!"unimplemented");
+    SkDEBUGFAIL("unimplemented");
     return nullptr;
 }
 
